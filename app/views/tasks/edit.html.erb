@@ -1,7 +1,19 @@
-<%= form_with model: @task do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-  <%= f.label :details %>
-  <%= f.text_field :details %>
-  <%= f.submit %>
-<% end %>
+<div class="container bg-light">
+  <h1 class="text-center mt-5 text-warning p-2"><i class="fa-solid fa-pencil"></i>Edit your task</h1>
+
+  <div class="justify-content-center m-5 p-2">
+    <%= form_with model: @task do |f| %>
+      <div class="form-group field">
+        <%= f.label :title, class: "h4" %>
+        <%= f.text_field :title, class: "form-control" %>
+      </div> <br>
+      <div class="form-group field">
+        <%= f.label :details, class: "h4" %>
+        <%= f.text_field :details, class: "form-control" %>
+      </div> <br>
+      <div class="actions">
+        <%= f.submit class: "btn btn-warning mb-2" %>
+      </div>
+    <% end %>
+  </div>
+</div>

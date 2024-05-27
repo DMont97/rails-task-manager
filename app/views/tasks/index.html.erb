@@ -1,15 +1,19 @@
-<h1>Tasks</h1>
-
-<% @tasks.each do |task| %>
-  <p>
-  <% if task.completed %>
-    <input type="checkbox" checked>
-  <% else %>
-    <input type="checkbox">
-  <% end %>
-  <%= link_to task.title, task_path(task.id) %>
-  <%= link_to "Edit", edit_task_path(task.id) %>
-  <%= link_to "Delete", task_path(task.id), data: {turbo_method: :delete, turbo_confirmation: "Estás seguro que quieres continuar?"} %>
-  </p>
-<% end %>
-<%= link_to "Add a new task", new_task_path %>
+<div class="container">
+  <h1 class="text-center mt-5 text-light bg-info bg-opacity-10 border border-info rounded">Tasks Manager</h1>
+  <div class="d-flex flex-column align-items-center mt-3 bg-light border border-3 rounded-top">
+    <% @tasks.each do |task| %>
+      <p class="text-decoration-none mt-3">
+        <% if task.completed %>
+          <input type="checkbox" class="form-check-input" checked>
+        <% else %>
+          <input type="checkbox" class="form-check-input">
+        <% end %>
+        <%= link_to task.title, task_path(task.id), :class => "text-decoration-none" %>
+        <%= link_to "", task_path(task.id), data: {turbo_method: :delete, turbo_confirmation: "Estás seguro que quieres continuar?"}, :class => "fa-solid fa-trash text-decoration-none ps-2" %>
+      </p>
+    <% end %>
+    <div class="btn btn-info btn-sm m-3">
+      <%= link_to "Add a task", new_task_path, :class => "btn" %>
+    </div>
+  </div>
+</div>

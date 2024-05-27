@@ -1,4 +1,12 @@
-<h2><%= @task.title %></h2>
-<p><%= @task.details %></p>
-
-<%= link_to "Back to list", tasks_path %>
+<div class="container">
+  <div class="d-flex flex-column align-items-center mt-5">
+    <div class="card" style="width: 22rem;">
+      <div class="card-body">
+        <h3 class="card-title text-warning"><%= @task.title %></h3>
+        <p class="card-text"><%= @task.details %></p>
+        <%= link_to "Edit this task", edit_task_path, :class => "btn btn-warning btn-sm" %>
+        <%= link_to "Back to list", tasks_path, :class => "btn btn-success btn-sm" %>
+      </div>
+    </div>
+  </div>
+</div>
